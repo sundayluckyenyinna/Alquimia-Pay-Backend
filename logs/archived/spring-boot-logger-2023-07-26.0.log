@@ -1,0 +1,129 @@
+2023-07-26 20:16:59,274 INFO org.springframework.boot.StartupInfoLogger [main] Starting SuretradeApplication on DESKTOP-05KLHOM with PID 20036 (C:\Users\DELL\Documents\Work\gms-sure-trade-backend\target\classes started by DELL in C:\Users\DELL\Documents\Work\gms-sure-trade-backend)
+2023-07-26 20:16:59,273 INFO org.hibernate.validator.internal.util.Version [background-preinit] HV000001: Hibernate Validator 6.1.7.Final
+2023-07-26 20:16:59,280 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: test
+2023-07-26 20:17:01,122 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-07-26 20:17:01,432 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 301ms. Found 24 JPA repository interfaces.
+2023-07-26 20:17:02,219 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 3000 (http)
+2023-07-26 20:17:02,233 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-3000"]
+2023-07-26 20:17:02,234 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2023-07-26 20:17:02,235 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-07-26 20:17:02,405 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2023-07-26 20:17:02,405 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 3075 ms
+2023-07-26 20:17:02,624 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-07-26 20:17:02,677 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.4.31.Final
+2023-07-26 20:17:02,804 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-07-26 20:17:03,045 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2023-07-26 20:17:06,222 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2023-07-26 20:17:06,238 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-07-26 20:17:09,593 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-07-26 20:17:09,618 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-07-26 20:17:10,495 WARN org.springframework.context.support.AbstractApplicationContext [main] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'simpleReportScheduler' defined in file [C:\Users\DELL\Documents\Work\gms-sure-trade-backend\target\classes\com\gms\suretrade\scheduler\reporting\job\SimpleReportScheduler.class]: Initialization of bean failed; nested exception is java.lang.IllegalStateException: Encountered invalid @Scheduled method 'produceCurrentMonthReports': Cron expression must consist of 6 fields (found 5 in "0 0 1 * *")
+2023-07-26 20:17:10,499 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-07-26 20:17:10,502 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Shutdown initiated...
+2023-07-26 20:17:11,854 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Shutdown completed.
+2023-07-26 20:17:11,857 INFO org.apache.juli.logging.DirectJDKLog [main] Stopping service [Tomcat]
+2023-07-26 20:17:11,870 INFO org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener [main] 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2023-07-26 20:17:11,886 ERROR org.springframework.boot.SpringApplication [main] Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'simpleReportScheduler' defined in file [C:\Users\DELL\Documents\Work\gms-sure-trade-backend\target\classes\com\gms\suretrade\scheduler\reporting\job\SimpleReportScheduler.class]: Initialization of bean failed; nested exception is java.lang.IllegalStateException: Encountered invalid @Scheduled method 'produceCurrentMonthReports': Cron expression must consist of 6 fields (found 5 in "0 0 1 * *")
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:602)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:897)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:879)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:551)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:755)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:402)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:312)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1247)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1236)
+	at com.gms.alquimiapay.AlquimiaPayApplication.main(SuretradeApplication.java:10)
+Caused by: java.lang.IllegalStateException: Encountered invalid @Scheduled method 'produceCurrentMonthReports': Cron expression must consist of 6 fields (found 5 in "0 0 1 * *")
+	at org.springframework.scheduling.annotation.ScheduledAnnotationBeanPostProcessor.processScheduled(ScheduledAnnotationBeanPostProcessor.java:511)
+	at org.springframework.scheduling.annotation.ScheduledAnnotationBeanPostProcessor.lambda$null$1(ScheduledAnnotationBeanPostProcessor.java:374)
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+	at org.springframework.scheduling.annotation.ScheduledAnnotationBeanPostProcessor.lambda$postProcessAfterInitialization$2(ScheduledAnnotationBeanPostProcessor.java:374)
+	at java.base/java.util.LinkedHashMap.forEach(LinkedHashMap.java:684)
+	at org.springframework.scheduling.annotation.ScheduledAnnotationBeanPostProcessor.postProcessAfterInitialization(ScheduledAnnotationBeanPostProcessor.java:373)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsAfterInitialization(AbstractAutowireCapableBeanFactory.java:430)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1803)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:594)
+	... 16 common frames omitted
+2023-07-26 20:24:31,164 INFO org.hibernate.validator.internal.util.Version [background-preinit] HV000001: Hibernate Validator 6.1.7.Final
+2023-07-26 20:24:31,172 INFO org.springframework.boot.StartupInfoLogger [main] Starting SuretradeApplication on DESKTOP-05KLHOM with PID 18504 (C:\Users\DELL\Documents\Work\gms-sure-trade-backend\target\classes started by DELL in C:\Users\DELL\Documents\Work\gms-sure-trade-backend)
+2023-07-26 20:24:31,173 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: test
+2023-07-26 20:24:32,727 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-07-26 20:24:33,017 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 281ms. Found 24 JPA repository interfaces.
+2023-07-26 20:24:33,570 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 3000 (http)
+2023-07-26 20:24:33,579 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-3000"]
+2023-07-26 20:24:33,580 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2023-07-26 20:24:33,580 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-07-26 20:24:33,703 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2023-07-26 20:24:33,704 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 2494 ms
+2023-07-26 20:24:33,983 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-07-26 20:24:34,045 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.4.31.Final
+2023-07-26 20:24:34,211 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-07-26 20:24:34,319 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2023-07-26 20:24:37,263 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2023-07-26 20:24:37,280 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-07-26 20:24:40,891 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-07-26 20:24:40,903 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-07-26 20:24:41,888 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-07-26 20:24:42,018 INFO com.gms.alquimiapay.integration.external.sila.service.SilaGenericService [main] Request Header: {Authorization=Basic LTB2RGkxR09YQ1RNTUdhVHZ5VGdLaXJ6S29MdFB4akRNTmNOUnNrYnNnZzo0Y0k5cEpzbVV4MTVmTXZZeEx0enhyTVk1Qk93dk9KdmFUbVhabHJkNW1fVWJNclBnNDRRQVBNOHJDa3R4SS15NTZMcEJoZ3Rub0pyUkpiU0lNMWhEQQ==}
+2023-07-26 20:24:42,098 INFO com.gms.alquimiapay.integration.external.sila.service.SilaGenericService [main] RequestJson: {"header":{"created":1690399472016,"auth_handle":"gms-sila","version":"0.2","reference":"73fe82ec-adf2-405f-a93d-85f6b13e83f2"}}
+2023-07-26 20:24:43,737 INFO com.gms.alquimiapay.web.WebClient [main] HttpConnection Success POST: {"success":true,"access_token":{"token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2OTAzOTk0ODMsImV4cCI6MTY5MDQyODI4MywiY2xpZW50X2lkIjoiLTB2RGkxR09YQ1RNTUdhVHZ5VGdLaXJ6S29MdFB4akRNTmNOUnNrYnNnZyJ9.3Ci191ASjhlGvVBnPe19g0X4NWASQ9AVu03dB9zbtrI","expiration":1690428283,"expiration_dt":"2023-07-27T03:24:43Z"},"status":"SUCCESS","reference":"73fe82ec-adf2-405f-a93d-85f6b13e83f2","response_time_ms":"174"}
+2023-07-26 20:24:43,738 INFO com.gms.alquimiapay.integration.external.sila.service.SilaGenericService [main] ResponseJsonPost: {"success":true,"access_token":{"token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2OTAzOTk0ODMsImV4cCI6MTY5MDQyODI4MywiY2xpZW50X2lkIjoiLTB2RGkxR09YQ1RNTUdhVHZ5VGdLaXJ6S29MdFB4akRNTmNOUnNrYnNnZyJ9.3Ci191ASjhlGvVBnPe19g0X4NWASQ9AVu03dB9zbtrI","expiration":1690428283,"expiration_dt":"2023-07-27T03:24:43Z"},"status":"SUCCESS","reference":"73fe82ec-adf2-405f-a93d-85f6b13e83f2","response_time_ms":"174"}
+2023-07-26 20:24:43,837 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2023-07-26 20:24:43,961 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'taskScheduler'
+2023-07-26 20:24:44,000 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-3000"]
+2023-07-26 20:24:44,033 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 3000 (http) with context path ''
+2023-07-26 20:24:44,477 INFO org.springframework.boot.StartupInfoLogger [main] Started SuretradeApplication in 13.749 seconds (JVM running for 15.072)
+2023-07-26 20:24:46,086 INFO com.gms.alquimiapay.scheduler.pooling.circle.WireBankDepositWalletUpdateCronJob [scheduling-1] Last Record: AccountDeposit{id=31, internalRef='b6c4b270-4576-4afe-9b47-3d6a3b42f977', depositId='e9837a9c-0722-4559-90d4-2c3ea7fdae57', sourceWalletId='6716f3b6-de95-418a-9376-ae5541aa6f13', sourceCardId='null', sourceType='WIRE', sourceBlockchainAddress='null', sourceBlockchain='null', createdAt='2023-07-26T15:44:15.071', updatedAt='2023-07-26T15:45:15.777', beneficiaryType='wallet', beneficiaryWalletOrAccountId='1016339088', beneficiaryAccountName='CIRCLE INTERNET FINANCIAL INC', amount='20.00', currency='USD', sourceCustomerName='Sunday Lucky ', sourceCustomerEmail='sundayluckyenyinnadeveloper@gmail.com', status='COMPLETE', ownerWalletBalance='28.40', transactionType='DEPOSIT'}
+2023-07-26 20:24:46,106 INFO com.gms.alquimiapay.integration.external.circle.service.deposit.CircleDepositService [scheduling-1] URL to fetch all bank deposits: https://api-sandbox.circle.com/v1/businessAccount/deposits?from=2023-07-26T15:44:15.071Z
+2023-07-26 20:24:47,135 INFO com.gms.alquimiapay.web.WebClient [scheduling-1] HttpConnection Success: {"data":[{"id":"e9837a9c-0722-4559-90d4-2c3ea7fdae57","sourceWalletId":"6716f3b6-de95-418a-9376-ae5541aa6f13","destination":{"type":"wallet","id":"1016339088"},"amount":{"amount":"20.00","currency":"USD"},"status":"complete","createDate":"2023-07-26T15:44:15.071Z","updateDate":"2023-07-26T15:45:15.777Z"}]} GET
+2023-07-26 20:24:47,137 INFO com.gms.alquimiapay.integration.external.circle.service.deposit.CircleDepositService [scheduling-1] ResponseJson to Get all deposits: {"data":[{"id":"e9837a9c-0722-4559-90d4-2c3ea7fdae57","sourceWalletId":"6716f3b6-de95-418a-9376-ae5541aa6f13","destination":{"type":"wallet","id":"1016339088"},"amount":{"amount":"20.00","currency":"USD"},"status":"complete","createDate":"2023-07-26T15:44:15.071Z","updateDate":"2023-07-26T15:45:15.777Z"}]}
+2023-07-26 20:24:50,388 INFO com.gms.alquimiapay.scheduler.pooling.circle.WireBankDepositWalletUpdateCronJob [scheduling-1] Last Record: AccountDeposit{id=31, internalRef='b6c4b270-4576-4afe-9b47-3d6a3b42f977', depositId='e9837a9c-0722-4559-90d4-2c3ea7fdae57', sourceWalletId='6716f3b6-de95-418a-9376-ae5541aa6f13', sourceCardId='null', sourceType='WIRE', sourceBlockchainAddress='null', sourceBlockchain='null', createdAt='2023-07-26T15:44:15.071', updatedAt='2023-07-26T15:45:15.777', beneficiaryType='wallet', beneficiaryWalletOrAccountId='1016339088', beneficiaryAccountName='CIRCLE INTERNET FINANCIAL INC', amount='20.00', currency='USD', sourceCustomerName='Sunday Lucky ', sourceCustomerEmail='sundayluckyenyinnadeveloper@gmail.com', status='COMPLETE', ownerWalletBalance='28.40', transactionType='DEPOSIT'}
+2023-07-26 20:24:50,389 INFO com.gms.alquimiapay.integration.external.circle.service.deposit.CircleDepositService [scheduling-1] URL to fetch all bank deposits: https://api-sandbox.circle.com/v1/businessAccount/deposits?from=2023-07-26T15:44:15.071Z
+2023-07-26 20:24:50,766 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [SpringContextShutdownHook] Shutting down ExecutorService 'taskScheduler'
+2023-07-26 20:24:50,767 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [SpringContextShutdownHook] Shutting down ExecutorService 'applicationTaskExecutor'
+2023-07-26 20:24:50,776 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [SpringContextShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-07-26 20:24:50,779 INFO com.zaxxer.hikari.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown initiated...
+2023-07-26 20:24:50,993 INFO com.gms.alquimiapay.web.WebClient [scheduling-1] HttpConnection Success: {"data":[{"id":"e9837a9c-0722-4559-90d4-2c3ea7fdae57","sourceWalletId":"6716f3b6-de95-418a-9376-ae5541aa6f13","destination":{"type":"wallet","id":"1016339088"},"amount":{"amount":"20.00","currency":"USD"},"status":"complete","createDate":"2023-07-26T15:44:15.071Z","updateDate":"2023-07-26T15:45:15.777Z"}]} GET
+2023-07-26 20:24:50,994 INFO com.gms.alquimiapay.integration.external.circle.service.deposit.CircleDepositService [scheduling-1] ResponseJson to Get all deposits: {"data":[{"id":"e9837a9c-0722-4559-90d4-2c3ea7fdae57","sourceWalletId":"6716f3b6-de95-418a-9376-ae5541aa6f13","destination":{"type":"wallet","id":"1016339088"},"amount":{"amount":"20.00","currency":"USD"},"status":"complete","createDate":"2023-07-26T15:44:15.071Z","updateDate":"2023-07-26T15:45:15.777Z"}]}
+2023-07-26 20:24:51,001 ERROR org.springframework.scheduling.support.TaskUtils$LoggingErrorHandler [scheduling-1] Unexpected error occurred in scheduled task
+org.springframework.beans.factory.BeanCreationNotAllowedException: Error creating bean with name 'entityManagerFactory': Singleton bean creation not allowed while singletons of this factory are in destruction (Do not request a bean from a BeanFactory in a destroy method implementation!)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:220)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeansOfType(DefaultListableBeanFactory.java:624)
+	at org.springframework.beans.factory.BeanFactoryUtils.beansOfTypeIncludingAncestors(BeanFactoryUtils.java:378)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.detectPersistenceExceptionTranslators(PersistenceExceptionTranslationInterceptor.java:168)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:151)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:149)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:95)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
+	at com.sun.proxy.$Proxy129.findByDepositId(Unknown Source)
+	at com.gms.alquimiapay.scheduler.pooling.circle.WireBankDepositWalletUpdateCronJob.processDepositAndCustomerWalletUpdate(WireBankDepositWalletUpdateCronJob.java:84)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84)
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:93)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2023-07-26 20:24:51,362 INFO com.zaxxer.hikari.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown completed.

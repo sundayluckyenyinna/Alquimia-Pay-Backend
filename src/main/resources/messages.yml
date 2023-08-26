@@ -1,0 +1,53 @@
+
+################################ Response Code Configuration ####################
+E00: Successful operation.
+E01A: User already exists by virtue of email address
+E01B: User already exists by virtue of username
+E01C: User already exists by virtue of mobileNumber
+E02: Invalid deviceId for channel.
+E03: User record not found
+E04: Otp already verified.
+E05: Otp expired
+E06: Otp incorrect
+E07: Failed model
+E08: Invalid password credentials
+E09: User account is locked. Please contact administrator or support.
+E10: Device ID mis-match.
+E11: Account is unverified. Please verify account by otp.
+E12: User handle not found. Please register a handle before proceeding to KYC registration. Thank you.
+E13: No lookup data was found that match the given lookup parameter.
+E14: Device already linked by the user.
+E15: No otp was found or was sent for this purpose of otp verification.
+E16: Device used to request for otp is not the same as the the one used to request for verification.
+E17: Device not yet initiated for linking.
+E18: Device not yet linked. Please link your device by verifying the sent otp and try again.
+E19: No admin registered for business
+E20: No individual user document found to start KYC verification.
+E21: Entity has not been linked remotely. Please register the entity fully and try again later.
+E22: Duplicate officer for same role.
+E23: User already linked to a local wallet.
+E24: No wallet record found for user.
+E25: Business name is required for a BUSINESS user type.
+E26: Incorrect transaction pin.
+E27: No transaction record ready for given fee reference
+E28: The transaction amount must be the same as the amount used for fee request!
+E29: User wallet is inactive!. Please contact administrator or support.
+E30: Insufficient funds in wallet!. Please fund your wallet and try again. Thank you.
+E31: Transaction fee reference already used for previous transaction.
+E32: Unable to update user wallet.
+E33: Entity not found.
+E34: Transaction already settled.
+E35: The admin user is already logged in. You are not permitted to have more than one logged in session!
+E36: The admin user is already logged out of the session.
+E37: Unable to save file to remote FTP server.
+E38: Unable to save local file to the local server.
+E39: Cheque record not found.
+E40: Cheque record already approved.
+E41: Cheque record already rejected.
+E42: Admin not logged in.
+
+
+E95: Third party service is currently unavailable. Please try again later.
+E96: Third party service failure. Please try again later.
+E97: Failed at third-party due to internal error. Could not establish success handshake with third-party.
+E99: Internal server error. Please contact administrator or support.

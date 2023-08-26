@@ -1,0 +1,56 @@
+package com.gms.alquimiapay.constants;
+
+public interface ResponseCode
+{
+    String SUCCESS = "00";
+    String RECORD_ALREADY_EXISTS_BY_EMAIL = "01A";
+    String RECORD_ALREADY_EXISTS_BY_USERNAME = "01B";
+    String RECORD_ALREADY_EXISTS_BY_MOBILE = "01C";
+    String INVALID_DEVICE_ID = "02";
+    String RECORD_NOT_FOUND = "03";
+    String OTP_ALREADY_VERIFIED = "04";
+    String OTP_EXPIRED = "05";
+    String OTP_INCORRECT = "06";
+    String BAD_MODEL = "07";
+    String INVALID_PASSWORD = "08";
+    String ACCOUNT_LOCKED = "09";
+    String DEVICE_ID_MIS_MATCH = "10";
+    String ACCOUNT_UNVERIFIED = "11";
+    String USER_HANDLE_NOT_FOUND = "12";
+    String NO_SUCH_LOOK_UP_DATA_TYPE = "13";
+    String DEVICE_ALREADY_LINKED = "14";
+    String OTP_RECORD_NOT_FOUND = "15";
+    String DEVICE_MIS_MATCH = "16";
+    String DEVICE_NOT_INITIATED_FOR_LINKING = "17";
+    String DEVICE_NOT_YET_LINKED = "18";
+    String NO_BUSINESS_ADMIN = "19";
+    String NO_USER_DOCUMENT_FOUND = "20";
+    String ENTITY_NOT_REMOTELY_LINKED = "21";
+    String DUPLICATE_OFFICER_ROLE = "22";
+    String USER_ALREADY_LINKED_TO_LOCAL_WALLET = "23";
+    String NO_WALLET_RECORD_FOR_USER = "24";
+    String BAD_USER_TYPE = "25";
+    String INCORRECT_TRANSACTION_PIN = "26";
+    String NO_TRANSACTION_ENTRY_FOR_FEE = "27";
+    String AMOUNT_MISMATCH = "28";
+    String WALLET_INACTIVE = "29";
+    String INSUFFICIENT_FUNDS = "30";
+    String FEE_ALREADY_USED = "31";
+    String UNABLE_TO_UPDATE_WALLET = "32";
+    String ENTITY_NOT_FOUND = "33";
+    String TRANSACTION_ALREADY_SETTLED = "34";
+    String ADMIN_ALREADY_LOGGED_IN = "35";
+    String ADMIN_ALREADY_LOGGED_OUT = "36";
+    String FTP_FILE_CREATION_ERROR = "37";
+    String LOCAL_FILE_CREATION_ERROR = "38";
+    String CHEQUE_RECORD_NOT_FOUND = "39";
+    String CHEQUE_RECORD_ALREADY_APPROVED = "40";
+    String CHEQUE_RECORD_ALREADY_REJECTED = "41";
+    String ADMIN_NOT_LOGGED_IN = "42";
+
+
+    String THIRD_PARTY_SERVICE_UNAVAILABLE = "95";
+    String THIRD_PARTY_SERVICE_FAILURE = "96";
+    String THIRD_PARTY_CLIENT_FAILURE = "97";
+    String SYSTEM_ERROR = "99";
+}
