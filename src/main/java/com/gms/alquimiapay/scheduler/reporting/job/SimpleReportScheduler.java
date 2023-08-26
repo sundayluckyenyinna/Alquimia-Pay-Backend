@@ -101,7 +101,7 @@ public class SimpleReportScheduler {
             AttachmentData attachmentData = new AttachmentData();
             attachmentData.setAbsolutePath(workbookPath);
             attachmentData.setName(workbookName.concat(".xlsx"));
-            attachmentData.setDescription("GMS Admin Monthly Report");
+            attachmentData.setDescription("Alquimia Pay Admin Monthly Report");
 
             List<AttachmentData> attachmentDataList = Collections.singletonList(attachmentData);
             emailMessenger.sendMailWithDataAndAttachment(adminRecipient, "admin-report", "GMS Monthly Report", data, attachmentDataList);

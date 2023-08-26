@@ -16,4 +16,5 @@ public interface StringValues
     String DOT = ".";
     String HYPHEN = "-";
     String PERCENT_SIGN = "%";
+    String COMMA = ",";
 }

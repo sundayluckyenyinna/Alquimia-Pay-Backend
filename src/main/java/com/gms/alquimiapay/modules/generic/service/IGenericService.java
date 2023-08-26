@@ -7,8 +7,6 @@ import java.io.File;
 
 public interface IGenericService
 {
-    LookupDataResponsePayload processLookupData(String lookupType);
-
     String hashFileContent(File file, HashAlgo algo);
 
     String getBinaryDataFromFile(File file);

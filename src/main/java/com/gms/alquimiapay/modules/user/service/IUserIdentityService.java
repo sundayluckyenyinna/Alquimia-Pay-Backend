@@ -12,37 +12,6 @@ import com.gms.alquimiapay.modules.user.payload.onboarding.request.UnlinkBusines
 import com.gms.alquimiapay.payload.BaseResponse;
 
 public interface IUserIdentityService {
-    BaseResponse checkUserHandle(String userHandle, String token);
-
-    BaseResponse processStartKycRequest(String authToken);
-
-    BaseResponse processCheckKycRequest(String authToken);
-
-    BaseResponse processIndividualUserRegistrationForKyc(IndividualUserKycRegistrationRequestPayload requestPayload, String token);
-    BaseResponse processBusinessUserRegistrationForKyc(BusinessKycRegistrationRequestPayload requestPayload, String token);
-
-    BaseResponse processBusinessAdministratorRegistration(BusinessOfficerRequestPayload requestPayload);
-
-    BaseResponse processBusinessControllerOfficerRegistration(BusinessOfficerRequestPayload requestPayload);
-
-    BaseResponse processBusinessBeneficialOwnerRegistration(BusinessOfficerRequestPayload requestPayload);
-
-    BaseResponse processBusinessMemberUnlinking(UnlinkBusinessMemberRequestPayload requestPayload);
-
-    UserDetailsResponsePayload processFetchUserDetailsRequest(String authToken);
-
-    BaseResponse processBeneficialOwnerCertification(CertifyBeneficialOwnerRequestPayload requestPayload);
-
-    BaseResponse processBusinessCertification(String businessEmail);
-
-    BaseResponse processIndividualKycDocumentUpload(String authToken, IndividualDocumentUploadRequestPayload requestPayload);
-
-    BaseResponse processBusinessTypes();
-    BaseResponse processBusinessCategories();
-
-    BaseResponse processDocumentTypes();
-
-    BaseResponse processBusinessRoleRequest();
 
     BaseResponse processChangePinRequest(String authToken, TransactionPinChangeRequestPayload requestPayload);
     BaseResponse processForgetPinOtpRequest(String authToken, String deviceId);

@@ -32,7 +32,7 @@ public class EmailMessenger
         MailData mailData = new MailData();
         String outerDocumentHtml= messageTemplateUtil.getTemplateOf(fileName);
         mailData.setContent(outerDocumentHtml);
-        mailData.setRecipientMail(recipient);
+        mailData.setRecipientMails(recipient);
         mailData.setSubject(subject);
 
         return mailData;
@@ -46,7 +46,7 @@ public class EmailMessenger
             outerDocumentHtml = outerDocumentHtml.replace(replaceableKey, entry.getValue());
         }
         mailData.setContent(outerDocumentHtml);
-        mailData.setRecipientMail(recipient);
+        mailData.setRecipientMails(recipient);
         mailData.setSubject(subject);
 
         return mailData;

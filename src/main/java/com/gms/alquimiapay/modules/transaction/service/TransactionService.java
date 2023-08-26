@@ -137,7 +137,7 @@ public class TransactionService implements ITransactionService {
 
         BigDecimal totalFee = new BigDecimal(thirdPartyFee)
                 .add(new BigDecimal(String.valueOf(internalFee)))
-                .setScale(2, RoundingMode.CEILING);
+                .setScale(2, RoundingMode.HALF_UP);
 
         String receivingCurrency = requestPayload.getReceivingCurrency();
         Double exchangeRate = getExchangeRate(CurrencyCode.USD.name(), requestPayload.getReceivingCurrency().toUpperCase());

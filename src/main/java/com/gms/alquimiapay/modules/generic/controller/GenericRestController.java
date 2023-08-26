@@ -23,9 +23,4 @@ public class GenericRestController
         this.genericService = genericService;
     }
 
-    @Operation(summary = "Load lookup data", description = "Load lookup data for a given lookup data type")
-    @GetMapping(value = GenericApiPath.LOOK_UP_DATA, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<LookupDataResponsePayload> handleLookupRequest(@RequestParam("lookType") String lookupType){
-        return ResponseEntity.ok(genericService.processLookupData(lookupType));
-    }
 }

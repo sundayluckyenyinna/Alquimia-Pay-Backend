@@ -1,5 +1,6 @@
 package com.gms.alquimiapay.util;
 
+import com.gms.alquimiapay.constants.OtpType;
 import com.gms.alquimiapay.constants.StringValues;
 import com.gms.alquimiapay.modules.user.constants.UserType;
 import com.gms.alquimiapay.modules.user.model.GmsUser;
@@ -34,15 +35,17 @@ public class OtpUtil
 
     @Autowired
     private IUserDeviceRepository userDeviceRepository;
+
     @Autowired
     private IUserRepository userRepository;
+
     @Autowired
     private MessageTemplateUtil messageTemplateUtil;
 
     private static final int OTP_LENGTH = 6;
 
     private String generateOtp(){
-        StringBuilder stringBuilder = new StringBuilder("");
+        StringBuilder stringBuilder = new StringBuilder();
         for(int i = 0; i < OTP_LENGTH; i++){
             int randomInteger = (int)(Math.random() * 10);
             stringBuilder.append(randomInteger);
@@ -53,8 +56,8 @@ public class OtpUtil
     public OtpSendInfo sendSignUpOtpToMail(String email){
         GmsUser user = userRepository.findByEmailAddress(email);
         String fileName = "otp-signup";
-        String expirationTime = env.getProperty("gms.otp.signup.expirationTimeInMin");
-        OtpSendInfo otpSendInfo = new OtpSendInfo();
+        String expirationTime = getOtpExpirationTimeFromConfig();
+        OtpSendInfo otpSendInfo = OtpSendInfo.getInstance();
 
         String signupTemplate = messageTemplateUtil.getTemplateOf(fileName);
         String otp = generateOtp();
@@ -81,8 +84,8 @@ public class OtpUtil
         System.out.println("Signup email verification message: {}" + signupTemplate);
 
         MailData mailData = new MailData();
-        mailData.setRecipientMail(email);
-        mailData.setSubject("GMS Email Verification");
+        mailData.setRecipientMails(email);
+        mailData.setSubject("AlquimiaPay Email Verification");
         mailData.setContent(signupTemplate);
         mailUtil.sendNotification(mailData);
 
@@ -92,8 +95,8 @@ public class OtpUtil
     public OtpSendInfo sendForgetPasswordOtpToMail(String email){
         GmsUser user = userRepository.findByEmailAddress(email);
         String fileName = "otp-forgotpassword";
-        String expirationTime = env.getProperty("gms.otp.signup.expirationTimeInMin");
-        OtpSendInfo otpSendInfo = new OtpSendInfo();
+        String expirationTime = getOtpExpirationTimeFromConfig();
+        OtpSendInfo otpSendInfo = OtpSendInfo.getInstance();
         String forgetPasswordTemplate = messageTemplateUtil.getTemplateOf(fileName);
         String otp = generateOtp();
         otpSendInfo.setOtpSent(otp);
@@ -120,12 +123,12 @@ public class OtpUtil
         System.out.println("Signup email verification message: {}" + forgetPasswordTemplate);
 
         // Create a new otp entry for user if it doesn't exist.
-        GmsUserOtp userOtp = otpRepository.findByOtpTypeAndOtpOwner("FORGOT_PASSWORD", email);
+        GmsUserOtp userOtp = otpRepository.findByOtpTypeAndOtpOwner(OtpType.FORGOT_PASSWORD.name(), email);
         if(userOtp == null){
             userOtp = new GmsUserOtp();
             userOtp.setOtpFor("User forgot password");
             userOtp.setOtpOwner(email);
-            userOtp.setOtpType("FORGOT_PASSWORD");
+            userOtp.setOtpType(OtpType.FORGOT_PASSWORD.name());
             userOtp.setOtpValue(passwordUtil.hashPassword(otp));
             userOtp.setVerified(false);
             userOtp.setCreatedAt(LocalDateTime.now().toString());
@@ -139,8 +142,8 @@ public class OtpUtil
         otpRepository.saveAndFlush(userOtp);
 
         MailData mailData = new MailData();
-        mailData.setRecipientMail(email);
-        mailData.setSubject("GMS Forgot Password Verification Email");
+        mailData.setRecipientMails(email);
+        mailData.setSubject("AlquimiaPay Forgot Password Verification Email");
         mailData.setContent(forgetPasswordTemplate);
         mailUtil.sendNotification(mailData);
 
@@ -150,8 +153,8 @@ public class OtpUtil
     public OtpSendInfo sendNewDeviceLinkOtp(String email, String newDeviceId) {
         GmsUser user = userRepository.findByEmailAddress(email);
         String fileName = "new-device-link";
-        String expirationTime = env.getProperty("gms.otp.signup.expirationTimeInMin");
-        OtpSendInfo otpSendInfo = new OtpSendInfo();
+        String expirationTime = getOtpExpirationTimeFromConfig();
+        OtpSendInfo otpSendInfo = OtpSendInfo.getInstance();
         String deviceLinkingTemplate = messageTemplateUtil.getTemplateOf(fileName);
         String otp = generateOtp();
         otpSendInfo.setOtpSent(otp);
@@ -178,12 +181,12 @@ public class OtpUtil
         System.out.println("Signup email verification message: {}" + deviceLinkingTemplate);
 
         // Create a new otp entry for user.
-        GmsUserOtp userOtp = otpRepository.findByOtpTypeAndOtpOwner("DEVICE_LINK", email);
+        GmsUserOtp userOtp = otpRepository.findByOtpTypeAndOtpOwner(OtpType.DEVICE_LINK.name(), email);
         if(userOtp == null){
             userOtp = new GmsUserOtp();
             userOtp.setOtpFor("User new device linking");
             userOtp.setOtpOwner(email);
-            userOtp.setOtpType("DEVICE_LINK");
+            userOtp.setOtpType(OtpType.DEVICE_LINK.name());
             userOtp.setCreatedAt(LocalDateTime.now().toString());
             userOtp.setUpdatedAt(LocalDateTime.now().toString());
         }
@@ -209,8 +212,8 @@ public class OtpUtil
         userDeviceRepository.saveAndFlush(userDevice);
 
         MailData mailData = new MailData();
-        mailData.setRecipientMail(email);
-        mailData.setSubject("GMS New Device Linking Verification Email");
+        mailData.setRecipientMails(email);
+        mailData.setSubject("AlquimiaPay New Device Linking Verification Email");
         mailData.setContent(deviceLinkingTemplate);
         mailUtil.sendNotification(mailData);
 
@@ -220,8 +223,8 @@ public class OtpUtil
     public OtpSendInfo sendPinChangeOtpRequest(String email, String newDeviceId){
         GmsUser user = userRepository.findByEmailAddress(email);
         String fileName = "pin-forget-otp";
-        String expirationTime = env.getProperty("gms.otp.signup.expirationTimeInMin");
-        OtpSendInfo otpSendInfo = new OtpSendInfo();
+        String expirationTime = getOtpExpirationTimeFromConfig();
+        OtpSendInfo otpSendInfo = OtpSendInfo.getInstance();
         String pinChangeTemplate = messageTemplateUtil.getTemplateOf(fileName);
         String otp = generateOtp();
         otpSendInfo.setOtpSent(otp);
@@ -245,12 +248,12 @@ public class OtpUtil
         System.out.println("Pin change message: {}" + pinChangeTemplate);
 
         // Create a new otp entry for user.
-        GmsUserOtp userOtp = otpRepository.findByOtpTypeAndOtpOwner("PIN_CHANGE", email);
+        GmsUserOtp userOtp = otpRepository.findByOtpTypeAndOtpOwner(OtpType.PIN_CHANGE.name(), email);
         if(userOtp == null){
             userOtp = new GmsUserOtp();
             userOtp.setOtpFor("User Pin change");
             userOtp.setOtpOwner(email);
-            userOtp.setOtpType("PIN_CHANGE");
+            userOtp.setOtpType(OtpType.PIN_CHANGE.name());
             userOtp.setCreatedAt(LocalDateTime.now().toString());
             userOtp.setUpdatedAt(LocalDateTime.now().toString());
         }
@@ -263,11 +266,15 @@ public class OtpUtil
         GmsUserOtp savedOtp =  otpRepository.saveAndFlush(userOtp);
 
         MailData mailData = new MailData();
-        mailData.setRecipientMail(email);
-        mailData.setSubject("GMS Transaction PIN Change");
+        mailData.setRecipientMails(email);
+        mailData.setSubject("AlquimiaPay Transaction PIN Change");
         mailData.setContent(pinChangeTemplate);
         mailUtil.sendNotification(mailData);
 
         return otpSendInfo;
+    }
+
+    private String getOtpExpirationTimeFromConfig(){
+        return env.getProperty("gms.otp.signup.expirationTimeInMin");
     }
 }

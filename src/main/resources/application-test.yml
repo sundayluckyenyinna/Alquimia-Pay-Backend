@@ -59,7 +59,7 @@ gms:
         percent: 5
 
   admin:
-    email: sundayluckyenyinna@gmail.com
+    email: sundayluckyenyinna@gmail.com,josh@gamestar.exchange
 
 
 ############################### Configuration for SILA API ##############################
@@ -108,7 +108,6 @@ third-party:
   ################################ Configuration for Alquimia Pay ####################################
   alquimia:
     blockchain:
-#      address: "0x493A9869E3B5f846f72267ab19B76e9bf99d51b1"
       address: "0x730097604fB847B5760D9aC3b314a5ca8bAdF6C0"
     account:
       account-number: 646180218700066216

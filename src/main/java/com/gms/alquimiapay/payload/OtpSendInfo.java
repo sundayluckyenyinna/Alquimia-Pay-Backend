@@ -11,4 +11,8 @@ public class OtpSendInfo
     private LocalDateTime createdDateTime;
     private LocalDateTime expirationDateTime;
     private String recipientEmail;
+
+    public static OtpSendInfo getInstance(){
+        return new OtpSendInfo();
+    }
 }
