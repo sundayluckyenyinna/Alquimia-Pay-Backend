@@ -172,6 +172,17 @@ public class UserOnboardingService implements IUserOnboardingService {
         }
 
         // Send success response to client application.
+        UserSignupResponseData responseData = getUserSignupResponseData(newUser);
+
+        UserSignupResponsePayload responsePayload = UserSignupResponsePayload.createInstance();
+        responsePayload.setResponseCode(ResponseCode.SUCCESS);
+        responsePayload.setResponseMessage(messageProvider.getMessage(responsePayload.getResponseCode()));
+        responsePayload.setResponseData(responseData);
+
+        return JSON.toJson(responsePayload);
+    }
+
+    private static UserSignupResponseData getUserSignupResponseData(GmsUser newUser) {
         UserSignupResponseData responseData = UserSignupResponseData.createInstance();
         responseData.setAuthToken(newUser.getAuthToken());
         responseData.setStatus(newUser.getStatus());
@@ -181,13 +192,7 @@ public class UserOnboardingService implements IUserOnboardingService {
         responseData.setEmailAddress(newUser.getEmailAddress());
         responseData.setVerified(false);
         responseData.setRequiresVerification(true);
-
-        UserSignupResponsePayload responsePayload = UserSignupResponsePayload.createInstance();
-        responsePayload.setResponseCode(ResponseCode.SUCCESS);
-        responsePayload.setResponseMessage(messageProvider.getMessage(responsePayload.getResponseCode()));
-        responsePayload.setResponseData(responseData);
-
-        return JSON.toJson(responsePayload);
+        return responseData;
     }
 
 

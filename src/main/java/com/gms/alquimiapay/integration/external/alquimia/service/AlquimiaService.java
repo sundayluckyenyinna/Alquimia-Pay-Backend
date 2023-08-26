@@ -42,7 +42,7 @@ public class AlquimiaService implements IIntegrationRemittanceService {
     @Value("${third-party.alquimia.remittance.beneficiary.default-address}")
     private String defaultBeneficiaryAddress;
 
-    @Value("${third-party.alquimia.remittance.beneficiary.default-address}")
+    @Value("${third-party.alquimia.remittance.beneficiary.default-city}")
     private String defaultBeneficiaryCity;
 
     private final AlquimiaGenericService alquimiaGenericService;

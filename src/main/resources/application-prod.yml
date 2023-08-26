@@ -1,7 +1,7 @@
 ########################################### Spring & Datasource configurations ################################
 spring:
   config:
-    import: optional:file:env-test.properties
+    import: optional:file:env-prod.properties
 
   datasource:
     driver-class-name: ${DATABASE_DRIVER_CLASS_NAME}
@@ -17,11 +17,11 @@ spring:
       hibernate:
         dialect: ${DATABASE_DIALECT}
     hibernate:
-          ddl-auto: update
+      ddl-auto: update
 
 
 
-############################################### Configuration for Mail ############################################
+  ############################################### Configuration for Mail ############################################
   mail:
     host: ${MAIL_HOST}
     port: ${MAIL_PORT}
@@ -48,7 +48,7 @@ gms:
     signup:
       expirationTimeInMin: ${OTP_EXPIRATION_IN_MIN}
   base-url: ${ALQUIMIA_PAY_BASE_URL}
-#  base-url: http://localhost:3000
+  #  base-url: http://localhost:3000
   wallet:
     digit: 10
 
@@ -109,7 +109,7 @@ third-party:
         default-city: ${ALQUIMIA_BENEFICIARY_DEFAULT_CITY}
 
 
-################################## Configuration for XE Exchange Rate #################################
+  ################################## Configuration for XE Exchange Rate #################################
   xe:
     app-id: ${XE_APP_ID}
     app-key: ${XE_APP_KEY}

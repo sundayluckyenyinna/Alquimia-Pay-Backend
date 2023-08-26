@@ -12,8 +12,6 @@ import com.gms.alquimiapay.modules.user.model.GmsUser;
 import com.gms.alquimiapay.modules.user.model.GmsUserOtp;
 import com.gms.alquimiapay.modules.user.payload.identity.request.TransactionPinChangeRequestPayload;
 import com.gms.alquimiapay.modules.user.payload.identity.request.TransactionPinResetOtpVerificationRequestPayload;
-import com.gms.alquimiapay.modules.user.repository.IGmsSilaBusinessOfficerRepository;
-import com.gms.alquimiapay.modules.user.repository.IGmsSilaBusinessRepository;
 import com.gms.alquimiapay.modules.user.repository.IUserOtpRepository;
 import com.gms.alquimiapay.modules.user.repository.IUserRepository;
 import com.gms.alquimiapay.modules.user.service.IUserIdentityService;
@@ -44,8 +42,6 @@ public class UserIdentityService implements IUserIdentityService
     private final IGenericService genericService;
     private final UserUploadDocumentRepository uploadDocumentRepository;
     private final UserKycVerificationRepository kycVerificationRepository;
-    private final IGmsSilaBusinessRepository businessRepository;
-    private final IGmsSilaBusinessOfficerRepository businessOfficerRepository;
     private final UserServiceValidator validator;
     private final PasswordUtil passwordUtil;
     private final OtpUtil otpUtil;
@@ -62,8 +58,6 @@ public class UserIdentityService implements IUserIdentityService
             @Lazy IGenericService genericService,
             UserUploadDocumentRepository uploadDocumentRepository,
             UserKycVerificationRepository kycVerificationRepository,
-            IGmsSilaBusinessRepository businessRepository,
-            IGmsSilaBusinessOfficerRepository businessOfficerRepository,
             UserServiceValidator validator,
             PasswordUtil passwordUtil,
             OtpUtil otpUtil,
@@ -75,8 +69,6 @@ public class UserIdentityService implements IUserIdentityService
         this.genericService = genericService;
         this.uploadDocumentRepository = uploadDocumentRepository;
         this.kycVerificationRepository = kycVerificationRepository;
-        this.businessRepository = businessRepository;
-        this.businessOfficerRepository = businessOfficerRepository;
         this.validator = validator;
         this.passwordUtil = passwordUtil;
         this.otpUtil = otpUtil;

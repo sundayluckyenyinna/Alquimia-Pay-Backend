@@ -1,10 +1,10 @@
 server:
   port: 3000
+
 spring:
   profiles:
     active: test
 
-ussd:
-  context:
-    scan:
-      basePackage: com.gms.suretrade
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher

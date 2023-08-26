@@ -14,7 +14,6 @@ public interface IUserRoleRepository extends JpaRepository<UserRole, Long>
 
     default UserRole getDefaultOrdinaryUserRole(){
         UserRole userRole = new UserRole();
-        userRole.setId(1L);
         userRole.setRoleName(RoleName.USER.name());
         userRole.setCreatedAt(LocalDateTime.now().toString());
         userRole.setUpdatedAt(userRole.getCreatedAt());

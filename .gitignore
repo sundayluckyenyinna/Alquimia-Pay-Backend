@@ -21,3 +21,6 @@ logs/
 *.iws
 *.iml
 *.ipr
+
+env-test.properties
+env-prod.properties
